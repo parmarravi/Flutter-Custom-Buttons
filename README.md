@@ -1,6 +1,7 @@
-# buttons
+# Custom Flutter Buttons
 
-A new Flutter project.
+
+<img src="sample/button_anim.gif" alt="Custom Button Animation" width="400"/>
 
 ## Getting Started
 
@@ -14,3 +15,5 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+
