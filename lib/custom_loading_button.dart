@@ -14,6 +14,7 @@ class CustomLoadingButton extends StatefulWidget {
   final Duration animationDuration;
   final VoidCallback? onTap; // Add the onTap callback
   final ButtonState state;
+  final Color? borderColorEnd;
 
   const CustomLoadingButton(
       {super.key,
@@ -24,6 +25,7 @@ class CustomLoadingButton extends StatefulWidget {
       this.borderWidth = 3.0,
       this.backgroundColor = Colors.black,
       this.borderColor = Colors.yellow,
+      this.borderColorEnd,
       this.animationDuration = const Duration(seconds: 2),
       this.state = ButtonState.defaultState,
       this.onTap});
@@ -132,6 +134,8 @@ class _CustomLoadingButtonState extends State<CustomLoadingButton>
                           borderColor: widget.borderColor,
                           borderWidth: widget.borderWidth,
                           borderRadius: widget.borderRadius,
+                          borderColorEnd:
+                              widget.borderColorEnd ?? widget.borderColor,
                         ),
                       ),
                     ),
@@ -164,12 +168,14 @@ class GradientCircularBorderPainter extends CustomPainter {
   final Color borderColor;
   final double borderWidth;
   final double borderRadius; // New parameter for custom radius
+  final Color borderColorEnd;
 
   GradientCircularBorderPainter({
     required this.animation,
     required this.borderColor,
     required this.borderWidth,
     required this.borderRadius,
+    required this.borderColorEnd,
   }) : super(repaint: animation);
 
   @override
@@ -187,7 +193,7 @@ class GradientCircularBorderPainter extends CustomPainter {
       colors: [
         Colors.transparent,
         borderColor,
-        borderColor,
+        borderColorEnd,
       ],
       stops: const [0.0, 0.5, 1.0],
       transform: GradientRotation(animation.value * math.pi * 2),
